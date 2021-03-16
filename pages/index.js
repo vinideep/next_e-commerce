@@ -1,6 +1,10 @@
-import Head from 'next/head'
-
+import Head from "next/head";
+import { ShopContext } from "../context/shopContext";
+import React, { useContext } from "react";
+import Link from "next/link";
 export default function Home() {
+  const contextData = useContext(ShopContext);
+
   return (
     <div className="container">
       <Head>
@@ -8,202 +12,88 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+     
+      <div className="w-full lg:flex lg:flex-wrap lg:justify-around z-0 ">
+        <div className="mt-24 mb-8 w-full ">
+          <img
+            className="w-full max-w-screen-2xl "
+            src="./svg/1021.jpg"
+            alt="banner"
+          />
+          <h1 className="text-center text-4xl text-gray-600 p-2 border-2 mt-20 uppercase">
+            Products
+          </h1>
         </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+      </div>
+      {console.log(contextData)}
+      <div className="w-full lg:flex lg:flex-wrap lg:justify-center md:justify-center md:flex md:flex-wrap md:p-2 ">
+        {contextData ? (
+          contextData.products.map((product, index) => (
+            <div
+              key={index}
+              className="lg:w-1/4 md:w-1/2 w-5/6  lg:h-1/4  m-auto mb-6 border-2 lg:m-10 sm:w-3/4 text-center border-gray-100 overflow-hidden shadow-xl hover:shadow-md "
+            >
+              <Link href={`/product/[product]`} as={`/product/${product.id}`}>
+                <a>
+                  <img
+                    className="block bg-cover bg-center object-cover w-full border-b-2"
+                    src={product.image.sourceUrl}
+                    alt="Product"
+                  />
+                  <h1 className="uppercase font-semibold text-xl cursor-pointer p-2 hover:text-red-500">
+                    <Link href={`/product${product.id}`}>
+                      <a>{product.name}</a>
+                    </Link>
+                  </h1>
+                  <p className="text-red-500 p-2">
+                    Regular Price: <del>{product.regularPrice}</del>
+                  </p>
+                  <p className="text-green-500 p-2">
+                    Offer Price: {product.price}
+                  </p>
+                </a>
+              </Link>
+              {!contextData.store.find((item) => item.id === product.id)
+                ?.quantity ?? 0 ? (
+                <button
+                  className="text-gray-200 lg:p-2 w-full md:py-5 py-2 text-xl mt-7 bg-gray-800 hover:shadow-xl"
+                  onClick={() => {
+                    contextData.addProductToCart(product);
+                  }}
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <div className="flex justify-between pb-6">
+                  <button
+                    className="bg-gray-800 px-4 text-center py-2 text-white text-2xl md:py-4 md:px-6 lg:px-5 lg:py-2 m-auto rounded-lg"
+                    onClick={() => {
+                      contextData.decrement(product);
+                    }}
+                  >
+                    -
+                  </button>
+                  <span className="m-auto px-6 bg-gray-50">
+                    {contextData.store.map((item) =>
+                      item.id === product.id ? item.quantity : null
+                    )}
+                  </span>
+                  <button
+                    className="bg-gray-800 px-3 text-center py-2 text-white text-2xl md:py-4 md:px-6 lg:px-4 lg:py-2 m-auto rounded-lg"
+                    onClick={() => {
+                      contextData.addProductToCart(product);
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+              )}
+            </div>
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
-  )
+  );
 }

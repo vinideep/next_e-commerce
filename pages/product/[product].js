@@ -110,7 +110,7 @@ const Description = () => {
                   contextData.addProductToCart(product);
                 }}
               >
-                Buy Now
+               <h1> Buy Now</h1>
               </a>
             </Link>
             <button

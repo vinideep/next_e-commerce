@@ -88,7 +88,7 @@ const Nav = () => {
                   navtoggle();
                 }}
               >
-                HOME
+                <h3>HOME</h3>
               </a>
             </Link>
 
@@ -99,7 +99,7 @@ const Nav = () => {
                   navtoggle();
                 }}
               >
-                PRODUCTS
+                <h3>PRODUCTS</h3>
               </a>
             </Link>
 
@@ -110,7 +110,7 @@ const Nav = () => {
                   navtoggle();
                 }}
               >
-                ABOUT
+                <h3>ABOUT</h3>
               </a>
             </Link>
 
@@ -121,7 +121,7 @@ const Nav = () => {
                   navtoggle();
                 }}
               >
-                LOGIN
+                <h3>LOGIN</h3>
               </a>
             </Link>
           </div>

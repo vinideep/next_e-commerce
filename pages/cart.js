@@ -4,7 +4,7 @@ import  Link  from "next/link";
 const CartData = () => {
   const contextData = useContext(ShopContext);
   const total = contextData.store.reduce(
-    (total, item) => total + item.quantity * Number(item.price.slice(1)),
+    (total, item) => total + item.quantity * +(item.price.slice(1)),
     0
   );
 

@@ -12,7 +12,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-     
       <div className="w-full lg:flex lg:flex-wrap lg:justify-around z-0 ">
         <div className="mt-24 mb-8 w-full ">
           <img
@@ -40,19 +39,18 @@ export default function Home() {
                     src={product.image.sourceUrl}
                     alt="Product"
                   />
-                  <h1 className="uppercase font-semibold text-xl cursor-pointer p-2 hover:text-red-500">
-                    <Link href={`/product${product.id}`}>
-                      <a>{product.name}</a>
-                    </Link>
-                  </h1>
-                  <p className="text-red-500 p-2">
-                    Regular Price: <del>{product.regularPrice}</del>
-                  </p>
-                  <p className="text-green-500 p-2">
-                    Offer Price: {product.price}
-                  </p>
                 </a>
               </Link>
+              <h1 className="uppercase font-semibold text-xl cursor-pointer p-2 hover:text-red-500">
+                <Link href={`/product${product.id}`}>
+                  <a>{product.name}</a>
+                </Link>
+              </h1>
+              <p className="text-red-500 p-2">
+                Regular Price: <del>{product.regularPrice}</del>
+              </p>
+              <p className="text-green-500 p-2">Offer Price: {product.price}</p>
+
               {!contextData.store.find((item) => item.id === product.id)
                 ?.quantity ?? 0 ? (
                 <button

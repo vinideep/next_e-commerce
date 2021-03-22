@@ -1,0 +1,12 @@
+.signOut{
+    display: none;
+}
+
+.login:hover .signOut{
+    display: block;
+    position: absolute;
+    background:white;
+    box-shadow: 2px 4px 4px 2px rgba(28, 29, 28, 0.5);
+    margin-top: 20px;
+    margin-left: -15px;
+}

@@ -2,11 +2,13 @@ import Head from "next/head";
 import { ShopContext } from "../context/shopContext";
 import React, { useContext } from "react";
 import Link from "next/link";
+
+
 export default function Home() {
   const contextData = useContext(ShopContext);
 
   return (
-    <div className="container">
+    <div className="">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -24,7 +26,6 @@ export default function Home() {
           </h1>
         </div>
       </div>
-      {console.log(contextData)}
       <div className="w-full lg:flex lg:flex-wrap lg:justify-center md:justify-center md:flex md:flex-wrap md:p-2 ">
         {contextData ? (
           contextData.products.map((product, index) => (
@@ -42,7 +43,7 @@ export default function Home() {
                 </a>
               </Link>
               <h1 className="uppercase font-semibold text-xl cursor-pointer p-2 hover:text-red-500">
-                <Link href={`/product${product.id}`}>
+                <Link href={`/product/[product]`} as={`/product/${product.id}`}>
                   <a>{product.name}</a>
                 </Link>
               </h1>

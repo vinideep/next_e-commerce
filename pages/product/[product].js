@@ -7,7 +7,6 @@ import ReactImageMagnify from "react-image-magnify";
 const Description = () => {
   const router = useRouter();
   const contextData = useContext(ShopContext);
-  const [isTrue, setIsTrue] = useState(false);
   const [product, setProduct] = useState();
   useEffect(() => {
     const product = contextData.products.find(
@@ -41,8 +40,9 @@ const Description = () => {
                 },
                 enlargedImageContainerDimensions: {
                   width: "200%",
-                  height: "100%",
+                  height: "140%",
                 },
+                enlargedImageContainerClassName: "-mt-32 mb-24 w-full",
               }}
             />
           </div>
@@ -51,7 +51,7 @@ const Description = () => {
               <li>
                 <img
                   onClick={() => {}}
-                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
+                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer sm:w-24 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
                   src={product.image.sourceUrl}
                   alt="item"
                 />
@@ -59,7 +59,7 @@ const Description = () => {
               <li>
                 <img
                   onClick={() => {}}
-                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
+                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer sm:w-24 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
                   src={product.image.sourceUrl}
                   alt="item"
                 />
@@ -67,7 +67,7 @@ const Description = () => {
               <li>
                 <img
                   onClick={() => {}}
-                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
+                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer sm:w-24 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
                   src={product.image.sourceUrl}
                   alt="item"
                 />
@@ -75,7 +75,7 @@ const Description = () => {
               <li>
                 <img
                   onClick={() => {}}
-                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
+                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer sm:w-24 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
                   src={product.image.sourceUrl}
                   alt="item"
                 />
@@ -83,7 +83,7 @@ const Description = () => {
               <li>
                 <img
                   onClick={() => {}}
-                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
+                  className="lg:w-20 w-14 md:w-24 m-2 shadow-md cursor-pointer sm:w-24 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl"
                   src={product.image.sourceUrl}
                   alt="item"
                 />
@@ -107,11 +107,11 @@ const Description = () => {
             <p className="font-extrabold text-green-600 text-left text-xl py-2 pr-2 m-auto">
               Offer Price: {product.price}
             </p>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap items-center">
               <Link href="/cart">
                 <a
-                  className="text-gray-700 bg-gradient-to-t border-2 lg:p-2 md:py-3 sm:py-3 py-2 mb-4 sm:w-full w-full lg:w-1/4 lg:ml-auto md:ml-auto
-          text-xl mb-1 from-yellow-500 to-yellow-300 hover:shadow-xl text-center font-bold outline:none"
+                  className="text-gray-700 bg-gradient-to-t border-2 lg:p-2 md:py-3 sm:py-3 py-2 sm:mb-4 sm:w-full w-full lg:w-1/4 lg:ml-auto md:ml-auto
+                  text-xl from-yellow-500 to-yellow-300 hover:shadow-xl text-center font-bold outline:none"
                   onClick={() => {
                     contextData.addProductToCart(product);
                   }}
@@ -119,19 +119,41 @@ const Description = () => {
                   <h1> Buy Now</h1>
                 </a>
               </Link>
-              <button
-                className={
-                  !isTrue
-                    ? "text-gray-200 lg:p-2 md:py-3 sm:py-3 py-3 sm:w-full w-full py-2 lg:w-1/4 lg:ml-auto md:ml-auto text-xl mb-1 bg-gray-800 hover:shadow-xl text-center font-bold outline:none"
-                    : "text-gray-700 lg:p-2 md:py-3 sm:py-3 py-3 sm:w-full w-full py-2 lg:w-1/4 lg:ml-auto md:ml-auto text-xl mb-1 bg-gray-300 hover:shadow-xl text-center font-bold pointer-events-none outline:none"
-                }
-                onClick={() => {
-                  contextData.addProductToCart(product);
-                  setIsTrue(!isTrue);
-                }}
-              >
-                {!isTrue ? "Add to Cart" : "Added to Cart"}
-              </button>
+              {!contextData.store.find((item) => item.id === product.id)
+                ?.quantity ?? 0 ? (
+                <button
+                  className="text-gray-200 ml-auto items-center lg:w-1/4 lg:p-2 w-full md:py-5 sm:py-3 py-2 sm:mb-4 text-xl bg-gray-800 hover:shadow-xl"
+                  onClick={() => {
+                    contextData.addProductToCart(product);
+                  }}
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <div className="flex justify-between pb-6 ml-auto w-full lg:w-1/4">
+                  <button
+                    className="bg-gray-800 px-4 text-center py-2 text-white text-2xl md:py-4 md:px-6 lg:px-5 lg:py-2 m-auto rounded-lg"
+                    onClick={() => {
+                      contextData.decrement(product);
+                    }}
+                  >
+                    -
+                  </button>
+                  <span className="m-auto px-6 bg-gray-50">
+                    {contextData.store.map((item) =>
+                      item.id === product.id ? item.quantity : null
+                    )}
+                  </span>
+                  <button
+                    className="bg-gray-800 px-3 text-center py-2 text-white text-2xl md:py-4 md:px-6 lg:px-4 lg:py-2 m-auto rounded-lg"
+                    onClick={() => {
+                      contextData.addProductToCart(product);
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

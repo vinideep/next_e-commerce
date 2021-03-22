@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
+import { signOut, useSession } from "next-auth/client";
 import { ShopContext } from "../context/shopContext";
 import Link from "next/link";
+import styles from "./Nav.module.css";
 const Nav = () => {
   const contextData = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [session, loading] = useSession();
+  const [dropdown, setDropdown] = useState(false);
 
   const navtoggle = () => {
     setIsOpen(!isOpen);
@@ -19,7 +23,7 @@ const Nav = () => {
               src="./svg/pagelines-brands.svg"
               alt="style"
             />
-            <h1 className="lg:text-3xl text-lg font-extrabold text-gray-700 tracking-wider uppercase">
+            <h1 className="lg:text-2xl md:text-3xl font-extrabold text-gray-700 lg:tracking-wider uppercase">
               TEXSOUL FASHIONS
             </h1>
             <img
@@ -113,17 +117,50 @@ const Nav = () => {
                 <h3>ABOUT</h3>
               </a>
             </Link>
-
-            <Link href="/login">
-              <a
-                className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                onClick={() => {
-                  navtoggle();
-                }}
-              >
-                <h3>LOGIN</h3>
-              </a>
-            </Link>
+            {session && session.user && session.user.name ? (
+              <div>
+                <h3
+                  onClick={() => setDropdown(!dropdown)}
+                  className="login lg:inline-flex items-center cursor-pointer lg:w-auto uppercase cursor:pointer font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                >
+                  {session.user.name}
+                  <svg
+                    class="-mr-1 ml-2 h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </h3>
+                  <h3
+                    className={
+                      !dropdown
+                        ? "lg:block lg:w-auto font-semibold w-24 text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform cursor-pointer hover:-translate-y-1 hover:scale-110"
+                        : "hidden"
+                    }
+                    onClick={() => signOut()}
+                  >
+                    Sign out
+                  </h3>
+                </div>
+            ) : (
+              <Link href="/login">
+                <a
+                  className="lg:inline-flex lg:w-auto uppercase font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                  onClick={() => {
+                    navtoggle();
+                  }}
+                >
+                  <h3>LOGIN</h3>
+                </a>
+              </Link>
+            )}
           </div>
         </div>
         {/* list of menu ends */}

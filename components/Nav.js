@@ -140,7 +140,7 @@ const Nav = () => {
                 </h3>
                   <h3
                     className={
-                      !dropdown
+                      dropdown
                         ? "lg:block lg:w-auto font-semibold w-24 text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform cursor-pointer hover:-translate-y-1 hover:scale-110"
                         : "hidden"
                     }

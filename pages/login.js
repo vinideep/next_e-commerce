@@ -1,8 +1,12 @@
 import { signIn, signOut, useSession } from "next-auth/client";
-import {useState,useEffect} from "react";
+import {useEffect} from "react";
+import { useRouter } from "next/router";
     export default function Page() {
     const [session, loading] = useSession();
-
+    const Router = useRouter();
+    useEffect(()=>{
+      session && session.user.name ? Router.push("/"):null
+    })
   return (
     <>
       <>

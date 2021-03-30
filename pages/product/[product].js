@@ -3,8 +3,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ShopContext } from "../../context/shopContext";
 import ReactImageMagnify from "react-image-magnify";
+import {loadStripe} from '@stripe/stripe-js';
+
+
 // description
 const Description = () => {
+  const stripe = await loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
   const router = useRouter();
   const contextData = useContext(ShopContext);
   const [product, setProduct] = useState();
@@ -38,10 +42,15 @@ const Description = () => {
                   width: 1200,
                   height: 1800,
                 },
+                enlargedImageClassName: "border-none",
                 enlargedImageContainerDimensions: {
-                  width: "200%",
+                  width: "300%",
                   height: "140%",
                 },
+                enlargedImageContainerStyle: {
+                  border: "none",
+                },
+
                 enlargedImageContainerClassName: "-mt-32 mb-24 w-full",
               }}
             />

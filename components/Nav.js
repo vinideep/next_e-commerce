@@ -118,30 +118,31 @@ const Nav = () => {
               </a>
             </Link>
             {session && session.user && session.user.name ? (
-              <div>
-                <h3
-                  onClick={() => setDropdown(!dropdown)}
-                  className="login lg:inline-flex items-center cursor-pointer lg:w-auto uppercase cursor:pointer font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-                >
+              <div
+                onMouseEnter={() => setDropdown(true)}
+                onMouseLeave={() => setDropdown(false)}
+              >
+                <h3 className="login lg:inline-flex items-center cursor-pointer lg:w-auto uppercase cursor:pointer font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
                   {session.user.name}
                   <svg
-                    class="-mr-1 ml-2 h-5 w-5"
+                    className="-mr-1 ml-2 h-5 w-5"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     />
                   </svg>
                 </h3>
+                <div>
                   <h3
                     className={
                       dropdown
-                        ? "lg:block lg:w-auto font-semibold w-24 text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform cursor-pointer hover:-translate-y-1 hover:scale-110"
+                        ? "lg:block lg:w-auto absolute font-semibold w-24 text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform cursor-pointer hover:-translate-y-1 hover:scale-110"
                         : "hidden"
                     }
                     onClick={() => signOut()}
@@ -149,6 +150,7 @@ const Nav = () => {
                     Sign out
                   </h3>
                 </div>
+              </div>
             ) : (
               <Link href="/login">
                 <a

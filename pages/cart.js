@@ -90,13 +90,13 @@ const CartData = () => {
       )}
       {total > 1 ? (
         <div className="lg:block flex-wrap  md:block">
-          <div className="flex lg:w-1/4 w-3/4 md:w-1/2 m-auto ml-auto border-2 p-2 lg:p-3 md:my-3 border-indigo-300 text-xl">
+          <div className="flex lg:w-1/4 w-3/4 md:w-1/2 lg:m-0 m-auto md:ml-auto lg:ml-auto border-2 p-2 lg:p-3 md:my-3 border-indigo-300 text-xl rounded-2xl">
             <p>Cart Total - </p>
             <span className="ml-auto">{total.toFixed(2)}</span>
           </div>
           <div
             onClick={() => contextData.clearCart()}
-            className="lg:w-1/6 w-full md:w-1/3 my-4 font-semibold m-auto ml-auto border-2 md:my-3 cursor-pointer p-2 from-gray-400 bg-gradient-to-t to-gray-200 text-center border-indigo-300 text-xl"
+            className="lg:w-1/6 w-full md:w-1/3 my-4 font-semibold lg:m-0 m-auto lg:mr-auto border-2 md:my-3 cursor-pointer p-2 rounded-2xl from-gray-400 bg-gradient-to-t to-gray-200 text-center border-indigo-300 text-xl"
           >
             Clear Cart
           </div>
@@ -104,7 +104,7 @@ const CartData = () => {
             onClick={() => {
               checkout();
             }}
-            className="lg:w-1/3 tracking-tighter w-full my-4 md:w-1/3 m-auto md:ml-auto font-semibold lg:ml-auto border-2 cursor-pointer text-gray-700 p-2 bg-gradient-to-b text-center text-xl from-yellow-200 to-yellow-500"
+            className="lg:w-1/3 tracking-tighter w-full my-4 md:w-1/3 lg:m-0 m-auto md:ml-auto font-semibold lg:ml-auto border-2 cursor-pointer text-gray-700 p-2 bg-gradient-to-b text-center text-xl from-yellow-200 to-yellow-500"
           >
             Proceed to Checkout
           </div>

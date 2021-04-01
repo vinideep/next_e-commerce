@@ -74,16 +74,6 @@ const Nav = () => {
           }
         >
           <div className="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col ">
-            <Link href="/cart">
-              <a className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:shadow-xl hidden  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                <img
-                  className="lg:w-7 lg:z-10 w-7 mx-2 animate-pulse"
-                  src="./svg/shopping-cart-solid.svg"
-                  alt="style"
-                />
-                <sub className="  ">{contextData.value}</sub>
-              </a>
-            </Link>
             <Link href="/">
               <a
                 className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl
@@ -163,6 +153,16 @@ const Nav = () => {
                 </a>
               </Link>
             )}
+            <Link href="/cart">
+              <a className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:shadow-xl hidden  transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                <img
+                  className="lg:w-7 lg:z-10 w-7 mx-2 animate-pulse"
+                  src="./svg/shopping-cart-solid.svg"
+                  alt="style"
+                />
+                <sub className="  ">{contextData.value}</sub>
+              </a>
+            </Link>
           </div>
         </div>
         {/* list of menu ends */}

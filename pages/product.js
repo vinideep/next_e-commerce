@@ -6,7 +6,7 @@ const product = () => {
   const contextData = useContext(ShopContext);
   return (
     <div>
-      <div className="bg-white shadow-lg mt-12 w-full p-2 flex sticky top-14">
+      <div className="bg-white shadow-lg mt-12 lg:w-1/2 md:w-1/2 w-full p-2 flex m-auto sticky top-14">
         <span className="w-12 flex justify-end items-center text-gray-700 p-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,6 @@ const product = () => {
       </div>
       <div className="w-full lg:flex lg:flex-wrap lg:justify-around z-0 ">
         <div className="mt-16 mb-8 w-full ">
-          
           <h1 className="text-center text-4xl text-gray-600 p-2 border-2 mt-20 uppercase">
             Products
           </h1>

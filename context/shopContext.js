@@ -7,6 +7,7 @@ const products = [
       sourceUrl:
         "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/12/12/1aab2a18-6774-4f83-b292-fe301755a3351576102551329-1.jpg",
     },
+    prices: `price_1IakmXSIIUO76lhjZk6pTshX`,
     name: "New Product 1",
     price: "£10.00",
     regularPrice: "£16.00",
@@ -20,6 +21,7 @@ const products = [
       sourceUrl:
         "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/7189947/2018/8/30/b0a17130-00b2-47dd-9acf-75fcdf7333111535614137835-Bene-Kleed-Men-Off-White--Blue-Slim-Fit-Printed-Casual-Shirt-3181535614137565-1.jpg",
     },
+    prices: `price_1Ib12BSIIUO76lhjaMtniIHd`,
     name: "New Product 2",
     price: "£10.00",
     regularPrice: "£16.00",

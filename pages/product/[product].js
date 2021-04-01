@@ -3,12 +3,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ShopContext } from "../../context/shopContext";
 import ReactImageMagnify from "react-image-magnify";
-import {loadStripe} from '@stripe/stripe-js';
+
 
 
 // description
 const Description = () => {
-  const stripe = await loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
   const router = useRouter();
   const contextData = useContext(ShopContext);
   const [product, setProduct] = useState();

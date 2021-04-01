@@ -96,7 +96,7 @@ const Nav = () => {
               </a>
             </Link>
 
-            <Link href="/">
+            <Link href="/product">
               <a
                 className="lg:inline-flex lg:w-auto font-semibold text-gray-600 text-lg px-4 py-2 rounded hover:text-gray-900 hover:shadow-xl  transition duration-300 ease-in-out transform hover:rotate-3 hover:-translate-y-1 hover:scale-110"
                 onClick={() => {

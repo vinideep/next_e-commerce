@@ -2,10 +2,19 @@ import Head from "next/head";
 import { ShopContext } from "../context/shopContext";
 import React, { useContext } from "react";
 import Link from "next/link";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
   const contextData = useContext(ShopContext);
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <div className="">
       <Head>
@@ -39,16 +48,38 @@ export default function Home() {
             <p className="font-semibold text-xs">Search</p>
           </button>
         </div>
-        <div className="w-full lg:flex lg:flex-wrap lg:justify-around z-0 ">
+        <div className="w-full lg:flex lg:flex-wrap lg:justify-around z-0 overflow-hidden">
           <div className="mt-16 mb-8 w-full ">
-            <img
-              className="w-full max-w-screen-2xl "
-              src="./svg/1021.jpg"
-              alt="banner"
-            />
-            <h1 className="text-center text-4xl text-gray-600 p-2 border-2 mt-20 uppercase">
-              Products
-            </h1>
+            <Slider {...settings}>
+              <div>
+                <img
+                  className="w-full max-w-screen-2xl "
+                  src="./svg/1019.jpg"
+                  alt="banner"
+                />
+              </div>
+              <div>
+                <img
+                  className="w-full max-w-screen-2xl "
+                  src="./svg/1021.jpg"
+                  alt="banner"
+                />
+              </div>
+              <div>
+                <img
+                  className="w-full max-w-screen-2xl "
+                  src="./svg/5150673.jpg"
+                  alt="banner"
+                />
+              </div>
+              <div>
+                <img
+                  className="w-full max-w-screen-2xl "
+                  src="./svg/1021.jpg"
+                  alt="banner"
+                />
+              </div>
+            </Slider>
           </div>
         </div>
         <div className="w-full lg:flex lg:flex-wrap lg:justify-center md:justify-center md:flex md:flex-wrap md:p-2 ">

@@ -74,7 +74,7 @@ import { useRouter } from "next/router";
           <div className="mt-20">
             
             Signed in as {session.user.name} <br />
-            <button onClick={() => {signOut();localStorage.removeItem("userName");}}>Sign out</button>
+            <button onClick={() => {signOut();}}>Sign out</button>
 
           </div>
         </>

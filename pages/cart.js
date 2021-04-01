@@ -1,10 +1,22 @@
 import { ShopContext } from "../context/shopContext";
 import React, { useContext } from "react";
-import  Link  from "next/link";
+import Link from "next/link";
+import { initiateCheckout } from "../checkout/checkout";
+
 const CartData = () => {
   const contextData = useContext(ShopContext);
+  const checkout = () => {
+    initiateCheckout({
+      lineItems: contextData.store.map(({ prices, quantity }) => {
+        return {
+          price: prices,
+          quantity: quantity,
+        };
+      }),
+    });
+  };
   const total = contextData.store.reduce(
-    (total, item) => total + item.quantity * +(item.price.slice(1)),
+    (total, item) => total + item.quantity * +item.price.slice(1),
     0
   );
 
@@ -88,7 +100,12 @@ const CartData = () => {
           >
             Clear Cart
           </div>
-          <div className="lg:w-1/3 tracking-tighter w-full my-4 md:w-1/3 m-auto md:ml-auto font-semibold lg:ml-auto border-2 cursor-pointer text-gray-700 p-2 bg-gradient-to-b text-center text-xl from-yellow-200 to-yellow-500">
+          <div
+            onClick={() => {
+              checkout();
+            }}
+            className="lg:w-1/3 tracking-tighter w-full my-4 md:w-1/3 m-auto md:ml-auto font-semibold lg:ml-auto border-2 cursor-pointer text-gray-700 p-2 bg-gradient-to-b text-center text-xl from-yellow-200 to-yellow-500"
+          >
             Proceed to Checkout
           </div>
         </div>
@@ -96,5 +113,4 @@ const CartData = () => {
     </div>
   );
 };
-
 export default CartData;
